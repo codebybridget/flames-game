@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FLAMES Name Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="brand">🔥 FLAMES</div>
+    <div class="header-controls">
+      <button id="soundToggle" class="icon-btn" aria-pressed="true" title="Toggle sound">🔊</button>
+      <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌗</button>
+    </div>
+  </header>
+
+  <main class="app" role="application" aria-label="FLAMES name game">
+    <section class="card">
+      <h1>FLAMES Name Relationship Game</h1>
+      <p class="lead">Enter two names, press <strong>Play</strong>. Results, theme, sound preference, and history are saved automatically.</p>
+
+      <div class="controls-row">
+        <label class="field">
+          <span class="label">Name 1</span>
+          <input id="name1" type="text" placeholder="e.g. Alex Parker" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span class="label">Name 2</span>
+          <input id="name2" type="text" placeholder="e.g. Lara Gomez" autocomplete="off" />
+        </label>
+
+        <div class="buttons">
+          <button id="playBtn" class="btn primary">Play</button>
+          <button id="resetBtn" class="btn ghost">Reset</button>
+        </div>
+      </div>
+
+      <div class="output-grid">
+        <div class="panel left-panel">
+          <div class="panel-section">
+            <div class="section-title">Processed Names</div>
+            <div class="name-pair">
+              <div>
+                <div class="subtle">Name 1 letters</div>
+                <div id="name1Out" class="name-display" aria-live="polite"></div>
+              </div>
+              <div>
+                <div class="subtle">Name 2 letters</div>
+                <div id="name2Out" class="name-display" aria-live="polite"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-section">
+            <div class="subtle">Remaining letters count</div>
+            <div id="countOut" class="count-display">—</div>
+          </div>
+
+          <div class="panel-section">
+            <div class="subtle">Elimination log</div>
+            <pre id="log" class="log-display" aria-live="polite">—</pre>
+          </div>
+        </div>
+
+        <div class="panel right-panel">
+          <div class="flames-wrap">
+            <div id="flamesArea" class="flames" role="list" aria-label="FLAMES letters"></div>
+          </div>
+
+          <div id="result" class="result">Result: —</div>
+          <div id="meaning" class="meaning">Meaning: —</div>
+
+          <div class="panel-footer">
+            <div class="tip">Your result will be saved automatically 🔄</div>
+            <div class="share-buttons">
+              <button id="shareBtn" class="btn ghost">Share Result</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="history-panel panel" aria-live="polite">
+        <div class="history-header">
+          <div class="section-title">History</div>
+          <div class="history-actions">
+            <button id="clearHistoryBtn" class="btn ghost small">Clear</button>
+          </div>
+        </div>
+        <div id="historyList" class="history-list">
+          <div class="muted-help">No history yet — play to create entries.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -3,102 +3,80 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>FLAMES Name Game</title>
+  <title>🔥 FLAMES Game 🔥</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+   
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(180deg, var(--bg), #041226 80%);
+      color: var(--text);
+      text-align: center;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+      overflow: hidden;
+    }
+
+    .welcome-container {
+      animation: fadeIn 1.2s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .start-btn {
+      background: linear-gradient(90deg, var(--accent), #ffb86b);
+      color: #08120b;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; transform: scale(0.96); }
+    }
+  </style>
 </head>
 <body>
+  <div class="welcome-container" id="welcomeScreen">
+    <h1>🔥 FLAMES Game 🔥</h1>
+    <p>Discover your relationship match — just for fun!</p>
+    <button class="start-btn" id="startGameBtn">Start Game</button>
+  </div>
 
-  <header class="topbar">
-    <div class="brand">🔥 FLAMES</div>
-
-    <div class="header-controls">
-      <button id="soundToggle" class="icon-btn" aria-pressed="true" title="Toggle sound">🔊</button>
-      <button id="themeToggle" class="icon-btn" aria-pressed="false" title="Toggle theme">🌗</button>
-    </div>
-  </header>
-
-  <main class="app" role="application" aria-label="FLAMES name game">
-    <section class="card">
-      <h1>FLAMES Name Relationship Game</h1>
-      <p class="lead">Enter two names, press <strong>Play</strong>. Results, theme, sound preference, and history are saved automatically.</p>
-
-      <div class="controls-row">
-        <label class="field">
-          <span class="label">Name 1</span>
-          <input id="name1" type="text" placeholder="e.g. Alex Parker" autocomplete="off" />
-        </label>
-
-        <label class="field">
-          <span class="label">Name 2</span>
-          <input id="name2" type="text" placeholder="e.g. Lara Gomez" autocomplete="off" />
-        </label>
-
-        <div class="buttons">
-          <button id="playBtn" class="btn primary">Play</button>
-          <button id="resetBtn" class="btn ghost">Reset</button>
-        </div>
-      </div>
-
-      <div class="output-grid">
-        <div class="panel left-panel">
-          <div class="panel-section">
-            <div class="section-title">Processed Names</div>
-            <div class="name-pair">
-              <div>
-                <div class="subtle">Name 1 letters</div>
-                <div id="name1Out" class="name-display" aria-live="polite"></div>
-              </div>
-              <div>
-                <div class="subtle">Name 2 letters</div>
-                <div id="name2Out" class="name-display" aria-live="polite"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="panel-section">
-            <div class="subtle">Remaining letters count</div>
-            <div id="countOut" class="count-display">—</div>
-          </div>
-
-          <div class="panel-section">
-            <div class="subtle">Elimination log</div>
-            <pre id="log" class="log-display" aria-live="polite">—</pre>
-          </div>
-        </div>
-
-        <div class="panel right-panel">
-          <div class="flames-wrap">
-            <div id="flamesArea" class="flames" role="list" aria-label="FLAMES letters"></div>
-          </div>
-
-          <div id="result" class="result">Result: —</div>
-          <div id="meaning" class="meaning">Meaning: —</div>
-
-          <div class="panel-footer">
-            <div class="tip">Your result will be saved automatically 🔄</div>
-            <div class="share-buttons">
-              <button id="shareBtn" class="btn ghost">Share Result</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- History panel -->
-      <div class="history-panel panel" aria-live="polite">
-        <div class="history-header">
-          <div class="section-title">History</div>
-          <div class="history-actions">
-            <button id="clearHistoryBtn" class="btn ghost small">Clear</button>
-          </div>
-        </div>
-        <div id="historyList" class="history-list">
-          <!-- history items injected here -->
-          <div class="muted-help">No history yet — play to create entries.</div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
+  <script>
+    const startBtn = document.getElementById('startGameBtn');
+    const welcome = document.getElementById('welcomeScreen');
+    startBtn.addEventListener('click', () => {
+      welcome.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = 'game.html';
+      }, 900);
+    });
+  </script>
 </body>
 </html>

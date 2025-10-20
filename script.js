@@ -1,4 +1,4 @@
-/* Constants & DOM  */
+
 const THEME_KEY = 'flames-theme';
 const DATA_KEY  = 'flames-data';    
 const HISTORY_KEY = 'flames-history';
